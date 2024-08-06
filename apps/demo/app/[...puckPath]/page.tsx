@@ -31,5 +31,5 @@ export default async function Page({
 }) {
   const { isEdit, path } = resolvePuckPath(params.puckPath);
 
-  return <Client isEdit={isEdit} path={path} />;
+  return <div style={{border: '1px solid red'}}><Client isEdit={isEdit} path={path} /></div>;
 }
