@@ -6,6 +6,7 @@ import { getClassNameFactory } from "@/core/lib";
 import dynamic from "next/dynamic";
 import dynamicIconImports from "lucide-react/dynamicIconImports";
 import ElementsGenerator from "./ElementsGenerator";
+import { get } from "http";
 
 const getClassName = getClassNameFactory("Form", styles);
 
@@ -69,20 +70,24 @@ export const Form: ComponentConfig<FormProps> = {
     const handleSubmit = (event) => {
       event.preventDefault();
       const formData = new FormData(formRef.current);
+
       for (const value of formData.values()) {
+        // Form Data
         console.log(value);
       }
     };
 
-    return <form ref={formRef} onSubmit={handleSubmit}>
+    return <form id="aayushi" className={getClassName()} ref={formRef} onSubmit={handleSubmit}>
       {formFields?.map((item, i) => {
       return (
-        <div key={item?.textLabel}>
+        <div className={getClassName("field")} key={item?.textLabel}>
           <ElementsGenerator textLabel={item.textLabel} fieldType={item.fieldType} Options={item?.Options} />
         </div>
       )}
     )}
-    {formFields?.length > 0 ? <button type="submit">Submit</button> : <div> No form fields <p>Please add some form fields in the right sidebar.</p></div>}
+    <div className={getClassName("field")}>
+      {formFields?.length > 0 ?  <button type="submit" className={getClassName("submit")}>Submit</button> : <div> No form fields <p>Please add some form fields in the right sidebar.</p></div>}
+    </div>
     </form>
   },
 };

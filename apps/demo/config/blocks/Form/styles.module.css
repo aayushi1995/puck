@@ -3,56 +3,70 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-  gap: 16px;
-  width: 100%;
+  justify-content: center;
+  padding: 1rem;
+  max-width: 50vh;
+  margin: auto;
 }
-/* .Card {
+
+.Form-field {
+  width:100%;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-  gap: 16px;
+  gap: 0.5rem;
+}
+
+.Form-label {
+  color: grey;
+  font-size: 14px;
+}
+
+.Form-textbox {
   width: 100%;
+  border: 1px solid #aeaeae;
+  height: 30px;
+  border-radius: 5px;
+  min-width: 200px;
 }
 
-.Card--card {
-  background: white;
-  box-shadow: rgba(140, 152, 164, 0.25) 0px 3px 6px 0px;
-  border-radius: 8px;
-  flex: 1;
-  max-width: 100%;
-  margin-left: unset;
-  margin-right: unset;
-  padding: 24px;
-  align-items: flex-start;
-  width: auto;
+.Form-radio-label, .Form-checkbox-label {
+  font-size: 14px;
+  color: black;
+  padding: 0px 0.5rem;
 }
 
-.Card-icon {
-  border-radius: 256px;
-  background: var(--puck-color-azure-09);
-  color: var(--puck-color-azure-06);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 64px;
-  height: 64px;
+.Form-select {
+  height: 40px;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  line-height: 30px;
+  padding: 10px;
+}
+.Form-submit {
+  margin: auto;
+  height: 30px;
+  color: white;
+  border-radius: 5px;
+  min-width: 200px;
+  border: none;
+  background-color: #0158ad;
+  box-shadow: 1px 2px 5px 1px lightgrey;
+  cursor: pointer;
 }
 
-.Card-title {
+/* 
+.Form-title {
   border: 1px solid red;
   font-size: 22px;
   text-align: center;
 }
 
-.Card--card .Card-title {
+.Form--Form .Form-title {
   text-align: left;
 }
 
-.Card-description {
+.Form-description {
   font-size: 16px;
   line-height: 1.5;
   color: var(--puck-color-grey-05);
@@ -60,6 +74,6 @@
   font-weight: 300;
 }
 
-.Card--card .Card-description {
+.Form--Form .Form-description {
   text-align: left;
-} */
+}  */
