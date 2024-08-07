@@ -5,8 +5,7 @@ import styles from "./styles.module.css";
 
 const getClassName = getClassNameFactory("Form", styles);
 
-
-const ElementsGenerator = ({fieldType, textLabel, Options, ...props}) => {
+const ElementsGenerator = ({fieldType, textLabel, Options, isRequired, ...props}) => {
     
     switch (fieldType) {
         case "text":
@@ -15,7 +14,7 @@ const ElementsGenerator = ({fieldType, textLabel, Options, ...props}) => {
                 <label className={getClassName("label")} htmlFor={textLabel}>
                     {textLabel}
                 </label>
-                <input className={getClassName("textbox")} type="text" id={textLabel} name={textLabel}/>
+                <input className={getClassName("textbox")} type="text" id={textLabel} name={textLabel} required={isRequired}/>
             </>
             )
             
@@ -25,7 +24,7 @@ const ElementsGenerator = ({fieldType, textLabel, Options, ...props}) => {
                     <label className={getClassName("label")} htmlFor={textLabel}>
                         {textLabel} 
                     </label>
-                    <input className={getClassName("textbox")} type="number" id={textLabel} name={textLabel}/>
+                    <input className={getClassName("textbox")} type="number" id={textLabel} name={textLabel} required={isRequired}/>
                 </>
         )
         case "radio":
@@ -35,7 +34,7 @@ const ElementsGenerator = ({fieldType, textLabel, Options, ...props}) => {
                     {Options?.map((option) => {
                         return (
                             <div className={getClassName("radio-option-wrapper")}>
-                            <input className={getClassName("radio")} type="radio" id={option?.label} name={textLabel} value={option?.value}/>   
+                            <input className={getClassName("radio")} type="radio" id={option?.label} name={textLabel} value={option?.value} required={isRequired}/>   
                             <label className={getClassName("radio-label")} htmlFor={option?.label}>
                                 {option?.label}
                             </label>
@@ -51,7 +50,7 @@ const ElementsGenerator = ({fieldType, textLabel, Options, ...props}) => {
                     {Options?.map((option) => {
                         return (
                             <div className={getClassName("checkbox-option-wrapper")}>
-                                <input type="checkbox" id={option?.label} name={textLabel} value={option?.value}/>   
+                                <input type="checkbox" id={option?.label} name={textLabel} value={option?.value} />   
                                 <label className={getClassName("checkbox-label")} htmlFor={option?.label}> {option?.label} </label>
                             </div>
                         )
@@ -62,7 +61,7 @@ const ElementsGenerator = ({fieldType, textLabel, Options, ...props}) => {
             return (
                 <>
                     <div className={getClassName("label")}>{textLabel}</div>
-                    <select className={getClassName("select")} name={textLabel} id={textLabel}>
+                    <select className={getClassName("select")} name={textLabel} id={textLabel} required={isRequired}>
                         {
                             Options?.map((obj) => {
                                 return <option value={obj?.value}>{obj?.label}</option>
@@ -72,7 +71,7 @@ const ElementsGenerator = ({fieldType, textLabel, Options, ...props}) => {
                 </>
             )
         default:
-            return <div></div>
+            return null
     }
 }
 export default ElementsGenerator

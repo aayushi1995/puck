@@ -32,6 +32,7 @@ export type FormProps = {
       label: string;
       value: string;
     }[];
+    isRequired: boolean
   }[];
 };
 
@@ -52,6 +53,17 @@ export const Form: ComponentConfig<FormProps> = {
               { label: "Select", value: "select" },
           ],
         },
+        isRequired: { 
+          type: "radio",
+          options: [
+           {
+            label: 'true', value: true,
+           },
+           {
+            label: 'false', value: false
+           }
+          ]
+         },
         Options: {
           type: "array",
           arrayFields: {
@@ -81,7 +93,7 @@ export const Form: ComponentConfig<FormProps> = {
       {formFields?.map((item, i) => {
       return (
         <div className={getClassName("field")} key={item?.textLabel}>
-          <ElementsGenerator textLabel={item.textLabel} fieldType={item.fieldType} Options={item?.Options} />
+          <ElementsGenerator {...item}/>
         </div>
       )}
     )}
