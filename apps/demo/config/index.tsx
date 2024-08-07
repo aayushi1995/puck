@@ -9,7 +9,7 @@ import { Logos, LogosProps } from "./blocks/Logos";
 import { Stats, StatsProps } from "./blocks/Stats";
 import { Text, TextProps } from "./blocks/Text";
 import { VerticalSpace, VerticalSpaceProps } from "./blocks/VerticalSpace";
-import {Form} from './blocks/Form'
+import {Form, FormProps} from './blocks/Form'
 
 import Root, { RootProps } from "./root";
 
@@ -26,7 +26,7 @@ export type Props = {
   Stats: StatsProps;
   Text: TextProps;
   VerticalSpace: VerticalSpaceProps;
-  Form: any
+  Form: FormProps
 };
 
 export type UserConfig = Config<
