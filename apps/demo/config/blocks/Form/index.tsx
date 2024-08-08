@@ -3,26 +3,9 @@ import React, { useRef } from "react";
 import { ComponentConfig } from "@/core/types/Config";
 import styles from "./styles.module.css";
 import { getClassNameFactory } from "@/core/lib";
-import dynamic from "next/dynamic";
-import dynamicIconImports from "lucide-react/dynamicIconImports";
 import ElementsGenerator from "./ElementsGenerator";
-import { get } from "http";
 
 const getClassName = getClassNameFactory("Form", styles);
-
-const icons = Object.keys(dynamicIconImports).reduce((acc, iconName) => {
-  const El = dynamic(dynamicIconImports[iconName]);
-
-  return {
-    ...acc,
-    [iconName]: <El />,
-  };
-}, {});
-
-const iconOptions = Object.keys(dynamicIconImports).map((iconName) => ({
-  label: iconName,
-  value: iconName,
-}));
 
 export type FormProps = {
   formFields: {
